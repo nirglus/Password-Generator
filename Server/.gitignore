@@ -1,0 +1,8 @@
+# Python
+*.pyc
+__pycache__/
+
+# Flask
+instance/
+.pytest_cache/
+.env
