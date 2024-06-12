@@ -1,9 +1,10 @@
+import PasswordGenerator from "./components/PasswordGenerator"
 
 function App() {
 
   return (
     <>
-    <h1>Password</h1>
+    <PasswordGenerator/>
     </>
   )
 }
