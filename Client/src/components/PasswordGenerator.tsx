@@ -21,40 +21,47 @@ const PasswordGenerator: React.FC = () => {
     };
 
     return (
-        <div>
-            <h1>Password Generator</h1>
-            <div>
-                <label>
-                    Length:
-                    <input
-                        type="range"
-                        min="1"
-                        max="50"
-                        value={length}
-                        onChange={(e) => setLength(+e.target.value)}
-                    />
-                    <span>{length}</span>
-                </label>
+        <div className="flex flex-col mx-auto min-h-80 p-6 bg-opacity-65 bg-slate-950 shadow-md rounded-lg">
+          <h1 className="text-3xl font-bold text-green-300 mb-4">Password Generator</h1>
+          <div className="mb-4">
+            <label className="block">
+              <span className="text-gray-200">Length: {length}</span>
+              <input
+                type="range"
+                min="1"
+                max="50"
+                value={length}
+                onChange={(e) => setLength(+e.target.value)}
+                className="w-full mt-2"
+              />
+            </label>
+          </div>
+          <div className="mb-4">
+            <label className="flex items-center">
+              <input
+                type="checkbox"
+                checked={useSpecialChars}
+                onChange={(e) => setUseSpecialChars(e.target.checked)}
+                className="mr-2"
+              />
+              <span className="text-gray-200">Use Special Characters</span>
+            </label>
+          </div>
+          <button
+            onClick={generatePassword}
+            className="bg-green-700 hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Generate Password
+          </button>
+          {password && (
+            <div className="mt-4">
+              <h2 className="text-xl font-semibold text-green-300 mb-2">Generated Password:</h2>
+              <p className="text-gray-200">{password}</p>
             </div>
-            <div>
-                <label>
-                    Use Special Characters:
-                    <input
-                        type="checkbox"
-                        checked={useSpecialChars}
-                        onChange={(e) => setUseSpecialChars(e.target.checked)}
-                    />
-                </label>
-            </div>
-            <button onClick={generatePassword}>Generate Password</button>
-            {password && (
-                <div>
-                    <h2>Generated Password:</h2>
-                    <p>{password}</p>
-                </div>
-            )}
+          )}
         </div>
-    );
+      );
+      
 };
 
 export default PasswordGenerator;

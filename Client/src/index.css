@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes bg-move {
+    100% {
+        background-position: 15% 50%;
+    }
+}
+  
+  .password-container {
+    background-image: url(../public/assets/main-bg.svg);
+    background-size: cover;
+    animation: bg-move 10s linear infinite alternate;
+  }
