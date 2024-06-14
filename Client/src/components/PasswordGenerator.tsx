@@ -77,11 +77,11 @@ const PasswordGenerator: React.FC = () => {
           <h2 className="text-xl font-semibold text-green-300 mb-2">
             Generated Password:
           </h2>
-          <div className="flex justify-between w-full gap-3">
+          <div className="flex justify-between items-center mb-2 bg-slate-800 bg-opacity-65 w-full gap-3 rounded px-1">
             <p className="text-gray-200">{password}</p>
             <button
                 onClick={copyToClipboard}
-                className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="text-green-700 hover:text-green-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
                 <FaCopy />
             </button>
