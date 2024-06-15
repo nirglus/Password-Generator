@@ -4,7 +4,7 @@ A Password Generator app built with React, Tailwind CSS, and TypeScript for the 
 
 [Visit the live site](https://password-generator-2a695.web.app/)
 
-<img width="922" alt="passgen" src="https://github.com/nirglus/Password-Generator/assets/119694737/7dfd0c42-246a-447e-b936-4ff596906920">
+<img width="842" alt="passgen" src="https://github.com/nirglus/Password-Generator/assets/119694737/9926f10a-3236-4240-b730-d4232e34c402">
 
 ## Features
 
