@@ -19,3 +19,7 @@ def generate_password_route():
     
     password = generate_password(length, use_special_chars)
     return jsonify({'password': password})
+
+@password_bp.route('/keep-alive', methods=['GET'])
+def keep_alive():
+    return jsonify({'message': 'Server is alive'}), 200
