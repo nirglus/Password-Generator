@@ -8,6 +8,7 @@ const PasswordGenerator: React.FC = () => {
   const [useSpecialChars, setUseSpecialChars] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
   const [copySuccess, setCopySuccess] = useState<boolean>(false);
+  const [hasError, setHasError] = useState<boolean>(false);
 
   const generatePassword = async () => {
     try {
@@ -21,8 +22,10 @@ const PasswordGenerator: React.FC = () => {
         }
       );
       setPassword(response.data.password);
+      setHasError(false);
     } catch (error) {
       console.error("Error generating password:", error);
+      setHasError(true);
     }
   };
 
@@ -95,7 +98,10 @@ const PasswordGenerator: React.FC = () => {
       >
         Generate Password
       </button>
-      {password && (
+      {hasError &&(
+        <p className="text-red-500 mt-5 text-center">Error generating password</p>
+      )}
+      {password && !hasError && (
         <div className="mt-4">
           <h2 className="text-xl font-semibold text-green-300 mb-2">
             Generated Password:
