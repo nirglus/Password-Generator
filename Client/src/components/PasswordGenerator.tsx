@@ -33,9 +33,9 @@ const PasswordGenerator: React.FC = () => {
       .catch((err) => console.error("Failed to copy:", err));
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     setCopySuccess(false);
-  },[length, password])
+  }, [length, password]);
 
   return (
     <div className="flex flex-col mx-auto min-h-80 p-6 bg-opacity-65 bg-slate-950 shadow-md rounded-lg">
@@ -51,7 +51,30 @@ const PasswordGenerator: React.FC = () => {
             max="50"
             value={length}
             onChange={(e) => setLength(+e.target.value)}
-            className="w-full mt-2"
+            className="          
+              appearance-none 
+              w-full 
+              h-2 
+              bg-[#2ec946]/10 
+              [&::-webkit-slider-runnable-track]:bg-transparent 
+              [&::-moz-range-track]:bg-transparent 
+              [&::-webkit-slider-thumb]:appearance-none 
+              [&::-webkit-slider-thumb]:h-4 
+              [&::-webkit-slider-thumb]:w-4 
+              [&::-webkit-slider-thumb]:bg-[#15803d]
+              [&::-webkit-slider-thumb]:hover:bg-[#1d9e49]
+              [&::-webkit-slider-thumb]:cursor-pointer 
+              [&::-moz-range-thumb]:appearance-none 
+              [&::-moz-range-thumb]:h-4 
+              [&::-moz-range-thumb]:w-4 
+              [&::-moz-range-thumb]:bg-[#15803d]
+              [&::-moz-range-thumb]:hover:bg-[#1d9e49]  
+              [&::-moz-range-thumb]:cursor-pointer"
+            style={{
+              background: `linear-gradient(to right, rgb(21 128 61) ${
+                length * 2
+              }%, #d1d5db ${length * 2}%)`,
+            }}
           />
         </label>
       </div>
@@ -80,13 +103,17 @@ const PasswordGenerator: React.FC = () => {
           <div className="flex justify-between items-center mb-2 bg-slate-800 bg-opacity-65 w-full gap-3 rounded px-1">
             <p className="text-gray-200">{password}</p>
             <button
-                onClick={copyToClipboard}
-                className="text-green-700 hover:text-green-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              onClick={copyToClipboard}
+              className="text-green-700 hover:text-green-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-                <FaCopy />
+              <FaCopy />
             </button>
           </div>
-          {copySuccess && <span className="text-green-500 ml-2 flex items-center gap-1"><IoMdCheckboxOutline /> Copied!</span>}
+          {copySuccess && (
+            <span className="text-green-500 ml-2 flex items-center gap-1">
+              <IoMdCheckboxOutline /> Copied!
+            </span>
+          )}
         </div>
       )}
     </div>
