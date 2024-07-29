@@ -18,7 +18,7 @@ def start_keep_alive():
         except requests.RequestException as e:
             print(f'Error sending keep-alive request: {e}')
 
-    scheduler.add_job(keep_alive_job, 'interval', minutes=2)
+    scheduler.add_job(keep_alive_job, 'interval', minutes=13)
 
 def stop_keep_alive():
     scheduler.shutdown()
